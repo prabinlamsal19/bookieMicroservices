@@ -34,6 +34,28 @@ app.post("/book", (req, res) => {
     })
 })
 
+app.get("/books", (req, res) => {
+    Book.find().then((books) => {
+        res.json(books)
+    }).catch(error => {
+        throw error;
+    })
+})
+
+// get one single book by id 
+app.get("/book/:id", (req, res) => {
+    Book.findById(req.params.id).then((book) => {
+        res.send(book);
+    }).catch((error) => { res.send("The book with the given id doesn't exist.") });
+})
+
+app.delete("/book/:id", (req, res) => {
+    Book.findByIdAndDelete(req.params.id).then(() => {
+        res.send("The book with the given ID is deleted.")
+    }).catch((error) => {
+        res.send("The book with the given id doesn't exist")
+    })
+})
 
 app.listen(4545, () => {
     console.log("Book Service up and running at port 4545");
