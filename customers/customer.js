@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-mongoose.model('Customer', {
+mongoose.model("Customer", {
     name: {
         type: String,
         require: true
@@ -13,5 +13,5 @@ mongoose.model('Customer', {
         type: String,
         require: true
     }
-})
+});
 

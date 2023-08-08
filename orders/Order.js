@@ -5,7 +5,7 @@ mongoose.model("Order", {
         type: mongoose.SchemaTypes.ObjectId,
         required: true
     },
-    BookID: {
+    BookId: {
         type: mongoose.SchemaTypes.ObjectId,
         required: true
     },
